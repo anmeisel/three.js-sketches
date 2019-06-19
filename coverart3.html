@@ -1,372 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
-    <title>External Pages | Cover Art</title>
+    <title>"Overshare" by Georgina Tyson | Cover Art | External Pages</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">         
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Overshare (cover art)">        
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <style>
+    .second {
+      display: none;
+      position:absolute;
+    }
+    .unmute-video {
+      display: none;
+      position:absolute;
+    }
+    button {
+      padding: 0;
+      border: none;
+      background: none;
+    }
+    .buttons {
+      margin-top: 5px; 
+      width:25px;
+      float:right;
+      right:0;
+      margin-right: 0;
+      position:absolute;
+    }
+    .secondbuttons {
+      top:40px; 
+      width:25px;
+      float:right;
+      right:0;
+      margin-right: 0;
+      position:absolute;
+    }
+    #play-button {
+      position: fixed;
+      top: calc(50% - 4em);
+      left: calc(50% - 5em);
+      width: 10em;
+      height: 8em;
+      z-index: 10;
+    }
+    .infotext {
+      visibility: hidden;
+      z-index: -1;
+      width:15vw;
+      height: 100px;
+      float:right;
+      right: 5vw;
+      font-family: Arial;
+      color: DarkBlue;
+      line-height: 1.6em; 
+      position: absolute;
+      -webkit-animation-name: backgroundtext; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 10s; /* Safari 4.0 - 8.0 */
+      -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+      -webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
+      animation-name: backgroundtext;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+    }
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes backgroundtext {
+      0%   {right:0px; top:100px; transform: rotateY(0deg);}
+      25%  {right:100px; top:100px;}
+      50%  {right:0px; top:100px;}
+      75%  {right:100px; top:100px;}
+      100% {right:0px; top:100px; transform: rotateY(360deg)}
+    }
+    /* Standard syntax */
+    @keyframes backgroundtext {
+      0%   {right:0px; top:100px; transform: rotateY(0deg);}
+      25%  {right:100px; top:100px;}
+      50%  {right:0px; top:100px;}
+      75%  {right:100px; top:100px;}
+      100% {right:0px; top:100px; transform: rotateY(360deg);}
+    }
+    @media (max-height: 600px) {
+      .infotext {
+        margin-top: -35px;
+      }
+    }
+    @media (min-width: 800px) {
+      #play-button {
+        visibility: hidden;
+      }
+      .infotext {
+        visibility: visible;
+      }
+    }
+    </style>
   </head>
+
   <body>
 
-   <script src="three.js-master/src/Three.js"></script>
-    <script src="three.js-master/src/loaders/OrbitControls.js"></script>
-   <script src="three.js-master/js/examples/js/libs/Stats.js"></script>
-    <script src="three.js-master/js/examples/js/libs/stats.min.js"></script>
+  <script src="../three.js-master/src/Three.js"></script>
+  <script src="../three.js-master/src/loaders/OrbitControls.js"></script>
+  <script src="../three.js-master/js/examples/js/libs/Stats.js"></script>
+  <script src="../three.js-master/js/examples/js/libs/stats.min.js"></script>
 
-    <button id="play-button">Three.js isn't supported by this device.<br>Try viewing this on a bigger screen.</button>
+  <button id="play-button">
+    Three.js isn't supported by this device.<br>
+    Try viewing this on a bigger screen.
+  </button>
 
-      <video id="video" loop controls webkit-playsinline playsinline style="display:none">
-        <source src="coverart3assets/Trisha.mp4" loop controls webkit-playsinline playsinline type="video/ogg">
-        <source src="coverart3assets/Trisha.ogg" loop controls webkit-playsinline playsinline type="video/ogg">
-          <p>"Sorry, your browser doesn't support HTML5 video."</p>
-      </video>
-<div class="buttons">
-  <button class="uk-button uk-button-primary first" onclick="playVid()" type="button">
-    <i class="material-icons">play_arrow</i></button>
-  <button class="uk-button uk-button-primary second" onclick="pauseVid()" type="button">
-    <i class="material-icons">pause</i></button>
-</div>
-<div class="secondbuttons">
-<button class="mute-video"><i class="material-icons">volume_off</i><button>
-    <button class="unmute-video"><i class="material-icons">volume_up</i><button>
-    </div>
+  <video id="video" loop controls webkit-playsinline playsinline style="display:none">
+    <source src="georgina-tyson-images/Trisha.mp4" loop controls webkit-playsinline playsinline type="video/ogg">
+    <source src="georgina-tyson-images/Trisha.ogg" loop controls webkit-playsinline playsinline type="video/ogg">
+    <p>"Sorry, your browser doesn't support HTML5 video."</p>
+  </video>
 
-    <div class="infotext"><i>drag to rotate</i></div>
+  <div class="buttons">
+    <button class="uk-button uk-button-primary first" onclick="playVid()" type="button">
+      <i class="material-icons">play_arrow</i>
+    </button>
+    <button class="uk-button uk-button-primary second" onclick="pauseVid()" type="button">
+      <i class="material-icons">pause</i>
+    </button>
+  </div>
 
-<style>
-.second {
-  display: none;
-  position:absolute;
-}
+  <div class="secondbuttons">
+    <button class="mute-video">
+      <i class="material-icons">volume_off</i>
+    <button>
+    <button class="unmute-video">
+      <i class="material-icons">volume_up</i>
+    <button>
+  </div>
 
-.unmute-video {
-    display: none;
-    position:absolute;
-}
+  <div class="infotext"><i>drag to rotate</i></div>
 
-button {
-  padding: 0;
-  border: none;
-  background: none;
-}
+    <script>
 
-.buttons {
-  margin-top: 5px; 
-  width:25px;
-  float:right;
-  right:0;
-  margin-right: 0;
-  position:absolute;
+      // iOS iframe auto-resize workaround
 
-}
+      if ( /(iPad|iPhone|iPod)/g.test( navigator.userAgent ) ) {
+        var scene = document.getElementById( 'scene' );
+        scene.style.width = getComputedStyle( scene ).width;
+        scene.style.height = getComputedStyle( scene ).height;
+        scene.setAttribute( 'scrolling', 'no' );
+      }
 
-.secondbuttons {
-    top:40px; 
-    width:25px;
-  float:right;
-  right:0;
-  margin-right: 0;
-  position:absolute;
+      // play section in the beginning
 
-}
+      var vid = document.getElementById("video");
+      console.log(vid);
+      document.getElementById('play-button').addEventListener("click", function(e){
+        this.style.display = 'none';
+        vid.play();
+        $('.first, .second').toggle();
+      }, false);
 
-#play-button {
-  position: fixed;
-  top: calc(50% - 4em);
-  left: calc(50% - 5em);
-  width: 10em;
-  height: 8em;
-  z-index: 10;
-}
+      var vidClip = document.getElementById("video"); 
+      function playVid() { 
+        video.play();
+      } 
 
-.infotext {
-    visibility: hidden;
-    z-index: -1;
-    width:15vw;
-    height: 100px;
-    float:right;
-    right: 5vw;
-    font-family: Arial;
-    color: DarkBlue;
-    line-height: 1.6em; 
-    position: absolute;
-    -webkit-animation-name: backgroundtext; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 10s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
-    -webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
-    animation-name: backgroundtext;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-}
+      function pauseVid() { 
+        video.pause(); 
+      }
 
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes backgroundtext {
-    0%   {right:0px; top:100px; transform: rotateY(0deg);}
-    25%  {right:100px; top:100px;}
-    50%  {right:0px; top:100px;}
-    75%  {right:100px; top:100px;}
-    100% {right:0px; top:100px; transform: rotateY(360deg)}
-}
+      $('.buttons').on('click', function() {
+        $('.first, .second').toggle();
+      });
 
-/* Standard syntax */
-@keyframes backgroundtext {
-    0%   {right:0px; top:100px; transform: rotateY(0deg);}
-    25%  {right:100px; top:100px;}
-    50%  {right:0px; top:100px;}
-    75%  {right:100px; top:100px;}
-    100% {right:0px; top:100px; transform: rotateY(360deg);}
-}
+      vidClip.onended = function(e) {
+        $('.first, .second').toggle();
+      };
 
-@media (max-height: 600px) {
-.infotext {
-    margin-top: -35px;
-}
+      $('.secondbuttons').on('click', function() {
+        $('.unmute-video, .mute-video').toggle();
+      });
 
-}
+      $("#video").prop('muted', true);
+      $(".secondbuttons").click(function () {
+        if ($("#video").prop('muted')) {
+            $("#video").prop('muted', false);
+            $(this).addClass('.unmute-video');
+        } else {
+            $("#video").prop('muted', true);
+            $(this).removeClass('.unmute-video');
+        }
+        console.log($("#video").prop('muted'))
+      });
 
-@media (min-width: 800px) {
-    #play-button {
-  visibility: hidden;
-}
-    .infotext {
-  visibility: visible;
-}
+      // three.js
 
-}
+      var container;
+      var camera, scene, renderer;
+      var mouseX = 0, mouseY = 0;
+      var windowHalfX = window.innerWidth / 2;
+      var windowHalfY = window.innerHeight / 2;
 
-</style>
+      init();
+      animate();
 
-<script>
+      function init() {
 
-    // iOS iframe auto-resize workaround
-    if ( /(iPad|iPhone|iPod)/g.test( navigator.userAgent ) ) {
-      var scene = document.getElementById( 'scene' );
-      scene.style.width = getComputedStyle( scene ).width;
-      scene.style.height = getComputedStyle( scene ).height;
-      scene.setAttribute( 'scrolling', 'no' );
-    }
+        container = document.createElement('div');
+        document.body.appendChild(container);
+        renderer = new THREE.WebGLRenderer(),
+        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 80000);
+        camera.position.z = 1050;
 
-// play section in the beginning
-var vid = document.getElementById("video");
-console.log(vid);
-document.getElementById('play-button').addEventListener("click", function(e){
-  this.style.display = 'none';
-  vid.play();
-  $('.first, .second').toggle();
-}, false);
+        // scene
 
-// get video element id
-var vidClip = document.getElementById("video"); 
+        scene = new THREE.Scene();
 
-// play video event
-function playVid() { 
-    video.play();
-} 
+        geometry = new THREE.PlaneBufferGeometry(700, 400);
 
-// pause video event
-function pauseVid() { 
-  video.pause(); 
-}
+        video = document.getElementById('video');
 
-// toggle button class on click
-$('.buttons').on('click', function() {
-  $('.first, .second').toggle();
-});
+        texture = new THREE.VideoTexture(video);
+        texture.minFilter = THREE.LinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.format = THREE.RGBFormat;
+        material = new THREE.MeshBasicMaterial({map: texture, side: THREE.DoubleSide}),
+        plane = new THREE.Mesh(geometry, material);
 
-// toggle button class when finished
-vidClip.onended = function(e) {
-  $('.first, .second').toggle();
-};
-
-// mute section
-$('.secondbuttons').on('click', function() {
-  $('.unmute-video, .mute-video').toggle();
-});
-$("#video").prop('muted', true);
-$(".secondbuttons").click(function () {
-    if ($("#video").prop('muted')) {
-        $("#video").prop('muted', false);
-        $(this).addClass('.unmute-video');
-    } else {
-        $("#video").prop('muted', true);
-        $(this).removeClass('.unmute-video');
-    }
-    console.log($("#video").prop('muted'))
-});
-
-
-
-
-
-            var container;
-
-            var camera, scene, renderer;
-
-            var mouseX = 0, mouseY = 0;
-
-            var windowHalfX = window.innerWidth / 2;
-            var windowHalfY = window.innerHeight / 2;
-
-
-            init();
-            animate();
-
-
-            function init() {
-
-                container = document.createElement( 'div' );
-                document.body.appendChild( container );
-                renderer = new THREE.WebGLRenderer(),
-                camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 80000 );
-                camera.position.z = 1050;
-
-                // scene
-
-                scene = new THREE.Scene();
-
-        geometry = new THREE.PlaneBufferGeometry( 700, 400 );
-
-        video = document.getElementById( 'video' );
-                texture = new THREE.VideoTexture( video );
-                texture.minFilter = THREE.LinearFilter;
-                texture.magFilter = THREE.LinearFilter;
-                texture.format = THREE.RGBFormat;
-
-
-                material = new THREE.MeshBasicMaterial({map: texture, side: THREE.DoubleSide}),
-
-        plane = new THREE.Mesh( geometry, material );
         pointLight = new THREE.PointLight(0xFFFFFF);
-        scene.add( plane );
 
-                // texture
+        scene.add(plane);
 
-                // var manager = new THREE.LoadingManager();
-                // manager.onProgress = function ( item, loaded, total ) {
+        controls = new THREE.OrbitControls( camera );
+        controls.enableZoom = true;
+        controls.enableRotate = true;
+        controls.enablePan = false;
 
-                //     console.log( item, loaded, total );
+        renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setClearColor(0x000000, 0);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
-                // };
+        container.appendChild( renderer.domElement );
+        window.addEventListener('resize', onWindowResize, false);
 
-                // var texture = new THREE.Texture();
+      }
 
-                // var onProgress = function ( xhr ) {
-                //     if ( xhr.lengthComputable ) {
-                //         var percentComplete = xhr.loaded / xhr.total * 100;
-                //         console.log( Math.round(percentComplete, 2) + '% downloaded' );
-                //     }
-                // };
+      function onWindowResize() {
 
-                // var onError = function ( xhr ) {
-                // };
+        windowHalfX = window.innerWidth / 2;
+        windowHalfY = window.innerHeight / 2;
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
+      }
 
-                // var loader = new THREE.ImageLoader( manager );
-                // loader.load( 'images/fran1.png', function ( image ) {
+      function animate() {
 
-                //     texture.image = image;
-                //     texture.needsUpdate = true;
+        requestAnimationFrame(animate);
+        render();
 
-                // } );
+      }
 
-                // model
+      function render() {
 
-                // var loader = new THREE.OBJLoader( manager );
-                // loader.load( 'siren_large_obj/newsirenmap17mb.obj', function ( object ) {
+        camera.position.x += ( mouseX - camera.position.x ) * 0.002;
+        camera.position.y += ( - mouseY - camera.position.y ) * 0.002;
+        camera.lookAt( scene.position );
+        renderer.render( scene, camera );
 
-                //     object.traverse( function ( child ) {
+      }
 
-                //         if ( child instanceof THREE.Mesh ) {
+    </script>
 
-                //             child.material.map = texture;
-
-                //         }
-
-                //     } );
-
-                //     object.position.y = - 10;
-                //     object.position.x = 250;
-                //     scene.add( object );
-
-                // }, onProgress, onError );
-
-
-
-
-                //
-
-                controls = new THREE.OrbitControls( camera );
-                // to disable zoom
-                controls.enableZoom = true;
-
-                // to disable rotation
-                controls.enableRotate = true;
-
-                // to disable pan
-                controls.enablePan = false;
-
-                renderer = new THREE.WebGLRenderer({ alpha: true });
-                renderer.setClearColor( 0x000000, 0 );
-                renderer.setPixelRatio( window.devicePixelRatio );
-                renderer.setSize( window.innerWidth, window.innerHeight );
-                container.appendChild( renderer.domElement );
-
-                // document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-
-                //
-
-                window.addEventListener( 'resize', onWindowResize, false );
-
-            }
-
-            function onWindowResize() {
-
-                windowHalfX = window.innerWidth / 2;
-                windowHalfY = window.innerHeight / 2;
-
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-
-                renderer.setSize( window.innerWidth, window.innerHeight );
-
-            }
-
-            // function onDocumentMouseMove( event ) {
-
-            //     mouseX = ( event.clientX - windowHalfX ) / 2;
-            //     mouseY = ( event.clientY - windowHalfY ) / 2;
-
-            // }
-
-            
-
-            function animate() {
-
-                requestAnimationFrame( animate );
-                render();
-
-            }
-
-            function render() {
-                
-
-                camera.position.x += ( mouseX - camera.position.x ) * 0.002;
-                camera.position.y += ( - mouseY - camera.position.y ) * 0.002;
-
-                camera.lookAt( scene.position );
-
-                renderer.render( scene, camera );
-
-            }
-
-
-
-
-</script>
-
-    </div>
   </body>
+
 </html>
